@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ✅ Core Project Details -->
+    <groupId>com.devops.practice</groupId>
+    <artifactId>sample-webapp</artifactId>
+    <version>1.0.0</version>
+    <packaging>war</packaging>
+
+    <name>Sample DevOps WebApp</name>
+
+    <!-- ✅ Properties -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- ✅ Dependencies -->
+    <dependencies>
+
+        <!-- Example dependency -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Test dependency -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <!-- ✅ Nexus Repository for Download (optional) -->
+    <repositories>
+        <repository>
+            <id>nexus-public</id>
+            <url>http://YOUR_NEXUS_IP:8081/repository/maven-public/</url>
+        </repository>
+    </repositories>
+
+    <!-- ✅ Nexus Upload Configuration (VERY IMPORTANT) -->
+    <distributionManagement>
+
+        <!-- For release artifacts -->
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://YOUR_NEXUS_IP:8081/repository/YOUR_RELEASE_REPO/</url>
+        </repository>
+
+        <!-- For snapshot artifacts -->
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://YOUR_NEXUS_IP:8081/repository/YOUR_SNAPSHOT_REPO/</url>
+        </snapshotRepository>
+
+    </distributionManagement>
+
+    <!-- ✅ Build Plugins -->
+    <build>
+        <finalName>sample-webapp</finalName>
+
+        <plugins>
+
+            <!-- Compiler plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+
+            <!-- WAR plugin -->
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.4.0</version>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
