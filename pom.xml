@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- ✅ Core Project Details -->
+    <!-- ✅ Core Project -->
     <groupId>com.devops.practice</groupId>
     <artifactId>sample-webapp</artifactId>
     <version>1.0.0</version>
